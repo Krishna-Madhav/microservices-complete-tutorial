@@ -1,0 +1,29 @@
+server:
+  port: 8083
+
+spring:
+  data :
+    mongodb:
+      uri: mongodb://localhost:27017
+      database: microservices
+
+  application:
+      name: Rating-Service
+
+  config:
+    import: optional:configserver:http://localhost:8085
+
+# For choosing one of the application files in GitHub ( default, prod, dev etc.)
+#  profiles:
+#    active: prod
+
+
+
+#eureka:
+#  instance :
+#    prefer-ip-address : true
+#  client:
+#    fetch-registry : true
+#    register-with-eureka : true
+#    service-url :
+#      defaultZone: http://localhost:8761/eureka
