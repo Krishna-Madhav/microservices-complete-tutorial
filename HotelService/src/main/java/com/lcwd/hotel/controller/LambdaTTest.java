@@ -1,5 +1,8 @@
 package com.lcwd.hotel.controller;
 
+interface InterfaceA{
+    void show();
+}
 public class LambdaTTest{
 
     public static void main(String[] args) {
