@@ -72,11 +72,13 @@ public class UserServiceImpl implements UserService {
             // api call to Hotel service to get hotel based on hotel id
             // http://localhost:8082/hotels/hotel1
 
-            // This is using RestTemplate
-            //  ResponseEntity<Hotel> hotel = restTemplate.getForEntity("http://HOTEL-SERVICE/hotels/" + rating.getHotelId(), Hotel.class);
-            // logger.info(" response status code {} ", hotel.getStatusCode());
+            /* This is using RestTemplate
+              ResponseEntity<Hotel> hotel = restTemplate.getForEntity("http://HOTEL-SERVICE/hotels/" + rating.getHotelId(), Hotel.class);
+              logger.info(" response status code {} ", hotel.getStatusCode());
+            */
 
             // This call is using Open Feign Client
+
             Hotel hotelData = hotelService.getHotel(rating.getHotelId());
 
             // set the Hotel in Rating class
