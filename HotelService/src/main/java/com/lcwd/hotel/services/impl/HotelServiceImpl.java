@@ -1,9 +1,9 @@
-package com.lcwd.hotel.services.impl;
+package com.emission.lcwd.hotel.services.impl;
 
-import com.lcwd.hotel.entities.Hotel;
-import com.lcwd.hotel.exceptions.ResourceNotFoundException;
-import com.lcwd.hotel.repositories.HotelRepository;
-import com.lcwd.hotel.services.HotelService;
+import com.emission.lcwd.hotel.entities.Hotel;
+import com.emission.lcwd.hotel.exceptions.ResourceNotFoundException;
+import com.emission.lcwd.hotel.repositories.HotelRepository;
+import com.emission.lcwd.hotel.services.HotelService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

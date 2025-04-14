@@ -1,4 +1,4 @@
-package com.lcwd.rating;
+package com.emission.lcwd.rating;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

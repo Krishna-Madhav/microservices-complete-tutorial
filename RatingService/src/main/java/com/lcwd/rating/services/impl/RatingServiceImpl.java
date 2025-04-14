@@ -1,8 +1,8 @@
-package com.lcwd.rating.services.impl;
+package com.emission.lcwd.rating.services.impl;
 
-import com.lcwd.rating.entities.Rating;
-import com.lcwd.rating.repository.RatingRepository;
-import com.lcwd.rating.services.RatingService;
+import com.emission.lcwd.rating.entities.Rating;
+import com.emission.lcwd.rating.repository.RatingRepository;
+import com.emission.lcwd.rating.services.RatingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

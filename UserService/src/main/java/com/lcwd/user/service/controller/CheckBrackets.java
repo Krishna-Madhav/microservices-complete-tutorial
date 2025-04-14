@@ -1,4 +1,4 @@
-package com.lcwd.user.service.controller;
+package com.emission.lcwd.user.service.controller;
 
 public class CheckBrackets {
 

@@ -1,7 +1,7 @@
-package com.lcwd.rating.controllers;
+package com.emission.lcwd.rating.controllers;
 
-import com.lcwd.rating.entities.Rating;
-import com.lcwd.rating.services.RatingService;
+import com.emission.lcwd.rating.entities.Rating;
+import com.emission.lcwd.rating.services.RatingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

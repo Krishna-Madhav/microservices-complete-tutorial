@@ -1,6 +1,6 @@
-package com.lcwd.rating.repository;
+package com.emission.lcwd.rating.repository;
 
-import com.lcwd.rating.entities.Rating;
+import com.emission.lcwd.rating.entities.Rating;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.List;

@@ -1,16 +1,15 @@
-package com.lcwd.user.service.services.impl;
+package com.emission.lcwd.user.service.services.impl;
 
-import com.lcwd.user.service.entities.Hotel;
-import com.lcwd.user.service.entities.Rating;
-import com.lcwd.user.service.entities.User;
-import com.lcwd.user.service.exceptions.ResourceNotFoundException;
-import com.lcwd.user.service.external.services.HotelService;
-import com.lcwd.user.service.repositories.UserRepository;
-import com.lcwd.user.service.services.UserService;
+import com.emission.lcwd.user.service.entities.Hotel;
+import com.emission.lcwd.user.service.entities.Rating;
+import com.emission.lcwd.user.service.entities.User;
+import com.emission.lcwd.user.service.exceptions.ResourceNotFoundException;
+import com.emission.lcwd.user.service.external.services.HotelService;
+import com.emission.lcwd.user.service.repositories.UserRepository;
+import com.emission.lcwd.user.service.services.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 

@@ -1,4 +1,4 @@
-package com.lcwd.hotel.controller;
+package com.emission.lcwd.hotel.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

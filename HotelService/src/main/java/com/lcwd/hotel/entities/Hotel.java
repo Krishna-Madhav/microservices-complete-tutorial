@@ -1,4 +1,4 @@
-package com.lcwd.hotel.entities;
+package com.emission.lcwd.hotel.entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

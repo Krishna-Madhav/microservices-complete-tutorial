@@ -1,6 +1,6 @@
-package com.lcwd.hotel.services;
+package com.emission.lcwd.hotel.services;
 
-import com.lcwd.hotel.entities.Hotel;
+import com.emission.lcwd.hotel.entities.Hotel;
 
 import java.util.List;
 

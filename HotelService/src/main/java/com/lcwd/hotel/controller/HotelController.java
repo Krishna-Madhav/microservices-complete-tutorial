@@ -1,7 +1,7 @@
-package com.lcwd.hotel.controller;
+package com.emission.lcwd.hotel.controller;
 
-import com.lcwd.hotel.entities.Hotel;
-import com.lcwd.hotel.services.impl.HotelServiceImpl;
+import com.emission.lcwd.hotel.entities.Hotel;
+import com.emission.lcwd.hotel.services.impl.HotelServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

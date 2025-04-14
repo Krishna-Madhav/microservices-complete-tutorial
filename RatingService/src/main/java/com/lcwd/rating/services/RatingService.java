@@ -1,6 +1,6 @@
-package com.lcwd.rating.services;
+package com.emission.lcwd.rating.services;
 
-import com.lcwd.rating.entities.Rating;
+import com.emission.lcwd.rating.entities.Rating;
 
 import java.util.List;
 
