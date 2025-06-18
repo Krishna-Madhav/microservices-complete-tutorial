@@ -1,4 +1,4 @@
-package com.emission.lcwd.user.service.entities;
+package com.lcwd.user.service.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -21,11 +21,13 @@ public class User {
     @Column(name = "ID")
     private String userId;
 
-    @Column(name = "name", length = 20)
+    @Column(name = "NAME", length = 20)
     private String userName;
 
+    @Column(name = "EMAIL")
     private String email;
 
+    @Column(name = "ABOUT")
     private  String about;
 
     @Transient

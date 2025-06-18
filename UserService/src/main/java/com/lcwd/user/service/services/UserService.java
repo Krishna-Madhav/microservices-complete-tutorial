@@ -1,6 +1,6 @@
-package com.emission.lcwd.user.service.services;
+package com.lcwd.user.service.services;
 
-import com.emission.lcwd.user.service.entities.User;
+import com.lcwd.user.service.entities.User;
 
 import java.util.List;
 

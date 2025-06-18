@@ -1,4 +1,4 @@
-package com.emission.lcwd.user.service.config;
+package com.lcwd.user.service.config;
 
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;

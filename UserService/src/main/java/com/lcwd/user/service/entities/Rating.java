@@ -1,4 +1,4 @@
-package com.emission.lcwd.user.service.entities;
+package com.lcwd.user.service.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

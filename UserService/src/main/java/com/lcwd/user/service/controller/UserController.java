@@ -1,7 +1,7 @@
-package com.emission.lcwd.user.service.controller;
+package com.lcwd.user.service.controller;
 
-import com.emission.lcwd.user.service.entities.User;
-import com.emission.lcwd.user.service.services.UserService;
+import com.lcwd.user.service.entities.User;
+import com.lcwd.user.service.services.UserService;
 import io.github.resilience4j.ratelimiter.annotation.RateLimiter;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
@@ -39,7 +39,7 @@ public class UserController {
     @GetMapping("/{userId}")
     // @CircuitBreaker(name = "ratingHotelBreaker", fallbackMethod = "ratingHotelFallback")
     // @Retry(name = "ratingHotelService", fallbackMethod = "ratingHotelFallback")
-    @RateLimiter(name = "userRateLimiter", fallbackMethod = "ratingHotelFallback")
+  //  @RateLimiter(name = "userRateLimiter", fallbackMethod = "ratingHotelFallback")
     public ResponseEntity<User> getUser(@PathVariable String userId) {
 
         logger.info("Get single user : UserController");

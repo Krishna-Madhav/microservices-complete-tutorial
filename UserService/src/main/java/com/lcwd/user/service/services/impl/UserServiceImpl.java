@@ -1,12 +1,12 @@
-package com.emission.lcwd.user.service.services.impl;
+package com.lcwd.user.service.services.impl;
 
-import com.emission.lcwd.user.service.entities.Hotel;
-import com.emission.lcwd.user.service.entities.Rating;
-import com.emission.lcwd.user.service.entities.User;
-import com.emission.lcwd.user.service.exceptions.ResourceNotFoundException;
-import com.emission.lcwd.user.service.external.services.HotelService;
-import com.emission.lcwd.user.service.repositories.UserRepository;
-import com.emission.lcwd.user.service.services.UserService;
+import com.lcwd.user.service.entities.Hotel;
+import com.lcwd.user.service.entities.Rating;
+import com.lcwd.user.service.entities.User;
+import com.lcwd.user.service.exceptions.ResourceNotFoundException;
+import com.lcwd.user.service.external.services.HotelService;
+import com.lcwd.user.service.repositories.UserRepository;
+import com.lcwd.user.service.services.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,7 +62,7 @@ public class UserServiceImpl implements UserService {
         // In order to make a call to another microservice for fetching data we need have a client in this class which can call the rest api exposed by another microservice
         // We can do this by RestTemplate or by using FeignClient
 
-        Rating[] ratings = restTemplate.getForObject("http://RATING-SERVICE/ratings/users/" + user.getUserId(), Rating[].class);
+       /* Rating[] ratings = restTemplate.getForObject("http://RATING-SERVICE/ratings/users/" + user.getUserId(), Rating[].class);
         logger.info("{}", ratings);
 
         List<Rating> userRatings = Arrays.stream(ratings).toList();
@@ -71,10 +71,10 @@ public class UserServiceImpl implements UserService {
             // api call to Hotel service to get hotel based on hotel id
             // http://localhost:8082/hotels/hotel1
 
-            /* This is using RestTemplate
+            *//* This is using RestTemplate
               ResponseEntity<Hotel> hotel = restTemplate.getForEntity("http://HOTEL-SERVICE/hotels/" + rating.getHotelId(), Hotel.class);
               logger.info(" response status code {} ", hotel.getStatusCode());
-            */
+            *//*
 
             // This call is using Open Feign Client
 
@@ -88,7 +88,7 @@ public class UserServiceImpl implements UserService {
 
         }).collect(Collectors.toList());
 
-        user.setRatings(ratingList);
+        user.setRatings(ratingList);*/
 
         return user;
     }
