@@ -1,4 +1,4 @@
-package com.emission.lcwd.hotel.exceptions;
+package com.lcwd.hotel.exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
