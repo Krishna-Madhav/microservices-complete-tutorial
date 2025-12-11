@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
@@ -55,43 +56,23 @@ public class UserServiceImpl implements UserService {
         User user = userRepository.findById(userId).orElseThrow(
                 () -> new ResourceNotFoundException("User with given id " + userId + " not found on server "));
 
-        // Here User data doesn't contain information about rating as it is not being set here in this microservice. So , we need to fetch it from another microservice RatingService
-        // fetch all the ratings given by a user using his userId
-        // http://localhost:8083/ratings/users/user1
+        /*
+         Here User data doesn't contain information about rating as it is not being set here in this User microservice.
+         So, we need to fetch it from another microservice RatingService which exposes an endpoint for the same.
+         Using this end-point, we fetch all the ratings given by a user using his userId
+         e.g. http://localhost:8083/ratings/users/user1
 
-        // In order to make a call to another microservice for fetching data we need have a client in this class which can call the rest api exposed by another microservice
-        // We can do this by RestTemplate or by using FeignClient
+         In order to make a call to another microservice for fetching data, we need to have a client in this class which can call the rest api exposed
+         by another microservice.
 
-       /* Rating[] ratings = restTemplate.getForObject("http://RATING-SERVICE/ratings/users/" + user.getUserId(), Rating[].class);
-        logger.info("{}", ratings);
+         We can do this by RestTemplate or by using FeignClient.
 
-        List<Rating> userRatings = Arrays.stream(ratings).toList();
+         */
 
-        List<Rating> ratingList = userRatings.stream().map(rating -> {
-            // api call to Hotel service to get hotel based on hotel id
-            // http://localhost:8082/hotels/hotel1
 
-            *//* This is using RestTemplate
-              ResponseEntity<Hotel> hotel = restTemplate.getForEntity("http://HOTEL-SERVICE/hotels/" + rating.getHotelId(), Hotel.class);
-              logger.info(" response status code {} ", hotel.getStatusCode());
-            *//*
 
-            // This call is using Open Feign Client
-
-            Hotel hotelData = hotelService.getHotel(rating.getHotelId());
-
-            // set the Hotel in Rating class
-            rating.setHotel(hotelData);
-
-            // return the rating
-            return rating;
-
-        }).collect(Collectors.toList());
-
-        user.setRatings(ratingList);*/
-
+        ArrayList<Rating> ratingsOfUser = restTemplate.getForObject("http://localhost:8083/ratings/users/" + user.getUserId(), ArrayList.class);
+        user.setRatings(ratingsOfUser);
         return user;
     }
 }
-
-
