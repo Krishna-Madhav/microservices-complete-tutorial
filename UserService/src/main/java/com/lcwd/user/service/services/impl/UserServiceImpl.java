@@ -10,6 +10,7 @@ import com.lcwd.user.service.services.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -57,7 +58,7 @@ public class UserServiceImpl implements UserService {
                 () -> new ResourceNotFoundException("User with given id " + userId + " not found on server "));
 
         /*
-         Here User data doesn't contain information about rating as it is not being set here in this User microservice.
+         Here, User data doesn't contain information about rating as it is not being set here in this User microservice.
          So, we need to fetch it from another microservice RatingService which exposes an endpoint for the same.
          Using this end-point, we fetch all the ratings given by a user using his userId
          e.g. http://localhost:8083/ratings/users/user1
@@ -71,8 +72,32 @@ public class UserServiceImpl implements UserService {
 
 
 
-        ArrayList<Rating> ratingsOfUser = restTemplate.getForObject("http://localhost:8083/ratings/users/" + user.getUserId(), ArrayList.class);
-        user.setRatings(ratingsOfUser);
+        Rating[] ratingsOfUser = restTemplate.getForObject("http://RATING-SERVICE/ratings/users/" + user.getUserId(), Rating[].class);
+
+        List<Rating> ratings = Arrays.stream(ratingsOfUser).toList();
+
+        List<Rating> ratingList = ratings.stream().map(rating -> {
+            /*
+                Here, at this point of time ratingsOfUser contains values for the Rating object - however, it doesn't contain information about Hotel object which is
+                part of Rating object. So, we need to make a call to Hotel service using hotelId and fetch the details and store to Rating object one by one
+
+                http://localhost:8082/hotels/cd96bd11-dcc6-4771-934f-991847c75ff8
+            */
+                ResponseEntity<Hotel> forEntity = restTemplate.getForEntity("http://HOTEL-SERVICE/hotels/" + rating.getHotelId(), Hotel.class);
+
+                logger.info("response {} ", forEntity.getStatusCode());
+
+                Hotel hotel = forEntity.getBody();
+
+                // set the hotel to rating object
+                rating.setHotel(hotel);
+
+                // return the rating
+            return rating;
+        }).collect(Collectors.toList());
+
+        // set ratings to user
+        user.setRatings(ratingList);
         return user;
     }
 }
